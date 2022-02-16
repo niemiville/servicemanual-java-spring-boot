@@ -1,15 +1,15 @@
-package com.etteplanmore.servicemanual;
+package com.etteplan.servicemanual;
 
 import java.util.Arrays;
 import java.util.List;
-
-import com.etteplanmore.servicemanual.factorydevice.FactoryDeviceRepository;
-import com.etteplanmore.servicemanual.factorydevice.FactoryDevice;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import com.etteplan.servicemanual.factorydevice.FactoryDevice;
+import com.etteplan.servicemanual.factorydevice.FactoryDeviceRepository;
 
 @SpringBootApplication
 public class ServiceManualApplication {

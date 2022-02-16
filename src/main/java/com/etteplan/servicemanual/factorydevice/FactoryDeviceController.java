@@ -1,4 +1,4 @@
-package com.etteplanmore.servicemanual.factorydevice;
+package com.etteplan.servicemanual.factorydevice;
 
 import org.springframework.web.bind.annotation.RestController;
 
