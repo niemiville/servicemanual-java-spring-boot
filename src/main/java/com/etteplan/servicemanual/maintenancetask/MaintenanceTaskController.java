@@ -22,12 +22,18 @@ public class MaintenanceTaskController {
         this.repository = repository;
     }
 
-    //Find all operation
+    //Find all operation with ordering by severity then by registration time
     @GetMapping("/maintenancetasks")
     List<MaintenanceTask> all() {
-        return repository.findAll();
+        return repository.findAllByOrderBySeverityAscRegistrationTimeAsc();
     }
-
+    
+    // Find all tasks by target device id
+    @GetMapping("/maintenancetasks/target/{targetId}")
+    List<MaintenanceTask> byTarget(@PathVariable Long targetId) throws Exception {
+        return repository.findByTargetId(targetId);
+    }
+    
     // Find by id operation
     @GetMapping("/maintenancetasks/{id}")
     MaintenanceTask one(@PathVariable Long id) throws Exception {
