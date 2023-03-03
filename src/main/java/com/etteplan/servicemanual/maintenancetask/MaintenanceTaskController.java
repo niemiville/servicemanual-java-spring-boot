@@ -36,9 +36,9 @@ public class MaintenanceTaskController {
     
     // Find by id operation
     @GetMapping("/maintenancetasks/{id}")
-    MaintenanceTask one(@PathVariable Long id) throws Exception {
+    MaintenanceTask one(@PathVariable Long id) {
         return repository.findById(id)
-            .orElseThrow(() -> new Exception());
+            .orElseThrow(() -> new MaintenanceTaskNotFoundException(id));
     }
     
     // Save operation
