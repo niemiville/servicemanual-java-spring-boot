@@ -1,15 +1,12 @@
 package com.etteplan.servicemanual;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.etteplan.servicemanual.factorydevice.FactoryDevice;
 import com.etteplan.servicemanual.factorydevice.FactoryDeviceRepository;
+import com.etteplan.servicemanual.maintenancetask.MaintenanceTaskRepository;
 
 @SpringBootApplication
 public class ServiceManualApplication {
@@ -19,19 +16,14 @@ public class ServiceManualApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(final FactoryDeviceRepository repository) {
+    public CommandLineRunner commandLineRunner(final FactoryDeviceRepository deviceRepository, final MaintenanceTaskRepository taskRepository) {
         return (args) -> {
-
-            /**
-             * Remove this. Temporary device storage before proper data storage is implemented.
-             */
-            final List<FactoryDevice> devices = Arrays.asList(
-                new FactoryDevice("Device X", 2001, "type 10"),
-                new FactoryDevice("Device Y", 2012, "type 3"),
-                new FactoryDevice("Device Z", 1985, "type 1")
-            );
-
-            repository.saveAll(devices);
+            
+        	//Adding seed data for devices.
+            deviceRepository.saveAll(FileReader.deviceDataReader("./device_seed_data.csv"));
+            
+            //Adding seed data for tasks.
+            taskRepository.saveAll(FileReader.taskDataReader("./maintenance_task_seed_data.csv"));
         };
     }
 
