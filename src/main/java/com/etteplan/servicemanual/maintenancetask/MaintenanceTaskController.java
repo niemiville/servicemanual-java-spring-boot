@@ -30,8 +30,12 @@ public class MaintenanceTaskController {
     
     // Find all tasks by target device id
     @GetMapping("/maintenancetasks/target/{targetId}")
-    List<MaintenanceTask> byTarget(@PathVariable Long targetId) throws Exception {
-        return repository.findByTargetId(targetId);
+    List<MaintenanceTask> byTarget(@PathVariable Long targetId) {
+    	List<MaintenanceTask> tasks = repository.findByTargetId(targetId);
+    	if(tasks.isEmpty()) {
+    		throw new TargetDeviceHasNoMaintenanceTasksException(targetId);
+    	}
+        return tasks;
     }
     
     // Find by id operation
@@ -63,17 +67,22 @@ public class MaintenanceTaskController {
 			
 			return repository.save(_task);
 		} else {
-			new Exception();
+			new MaintenanceTaskNotFoundException(taskId);
 		}
         return null;
     }
   
     // Delete operation
     @DeleteMapping("/maintenancetasks/{id}")
-    public void deleteDepartmentById(@PathVariable("id")
-                                       Long taskId)
+    public String deleteDepartmentById(@PathVariable("id") Long taskId)
     {
-    	repository.deleteById(taskId); 
+    	try {
+    		repository.deleteById(taskId);
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    		throw new MaintenanceTaskNotFoundException(taskId);
+    	}
+    	return "Maintenance task deleted successfully.";
     }
 	
 }
