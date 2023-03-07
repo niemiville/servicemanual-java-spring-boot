@@ -3,6 +3,6 @@ targetId,description,severity,status
 1,Device does not boot up,critical,open
 1,Device is very dusty,unimportant,open
 1,Device started to beep loudly,important,closed
-4,Hadle bar broke,important,open
+4,Handle bar broke,important,open
 10,Battery doesn't load up,important,open
 10,Devices blade is broken,critical,open
