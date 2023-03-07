@@ -29,7 +29,7 @@ public class FactoryDeviceControllerTest {
 
     @Test
     public void getFactoryDeviceNotFound() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/factorydevices/999").accept(MediaType.APPLICATION_JSON))
+        mvc.perform(MockMvcRequestBuilders.get("/factorydevices/9999999").accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNotFound());
     }
 }
