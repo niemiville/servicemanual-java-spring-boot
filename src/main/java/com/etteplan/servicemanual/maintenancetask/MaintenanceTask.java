@@ -10,6 +10,11 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+/**
+ * Class to store information about MaintenanceTask.
+ * 
+ * @author Ville Niemi
+ */
 @Entity
 public class MaintenanceTask {
 
@@ -21,19 +26,41 @@ public class MaintenanceTask {
 		open, closed
 	}
 
+	/**
+	 * Automatically generated id for maintenance task.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	/**
+	 * Id of the target device, the device to which the task is directed.
+	 */
 	private Long targetId;
+	
+	/**
+	 * Timestamp of the moment when the task was registered first.
+	 */
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private Timestamp registrationTime;
+	
+	/**
+	 * Description of the task.
+	 */
 	private String description;
+	
+	/**
+	 * Severity of the task.
+	 */
 	private Severity severity;
+	
+	/**
+	 * Status of the task.
+	 */
 	private Status status;
 
-	protected MaintenanceTask() {
-	}
+	protected MaintenanceTask() {}
 
 	/**
 	 * Constructor of MaintenanceTask class

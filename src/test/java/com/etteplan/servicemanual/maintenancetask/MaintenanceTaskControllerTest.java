@@ -12,6 +12,13 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+
+/**
+ * Test class for MaintenanceTaskController.
+ * These tests expect that the ServiceManualApplication class reads the right seed data.
+ * 
+ * @author Ville Niemi
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
