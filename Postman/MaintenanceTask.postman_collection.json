@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "2f8df246-d187-4ddf-8d1c-753da6756c47",
+		"name": "MaintenanceTask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26062097"
+	},
+	"item": [
+		{
+			"name": "Add single task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"targetId\": 2,\r\n    \"description\": \"Device requires an oil change\",\r\n    \"severity\": \"important\",\r\n    \"status\": \"open\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/maintenancetasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"maintenancetasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all tasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/maintenancetasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"maintenancetasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single task",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/maintenancetasks/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"maintenancetasks",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete single task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/maintenancetasks/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"maintenancetasks",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update single task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"targetId\": 4,\r\n    \"description\": \"Handle bar broke\",\r\n    \"severity\": \"critical\",\r\n    \"status\": \"open\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/maintenancetasks/:targetId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"maintenancetasks",
+						":targetId"
+					],
+					"variable": [
+						{
+							"key": "targetId",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by target id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/maintenancetasks/target/:targetId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"maintenancetasks",
+						"target",
+						":targetId"
+					],
+					"variable": [
+						{
+							"key": "targetId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

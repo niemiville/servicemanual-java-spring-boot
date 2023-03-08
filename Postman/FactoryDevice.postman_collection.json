@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "fe917be4-1e71-490f-9665-50e90f46aea9",
+		"name": "FactoryDevice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26062097"
+	},
+	"item": [
+		{
+			"name": "Get all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"Device V8\"",
+						"type": "text"
+					},
+					{
+						"key": "year",
+						"value": "1998",
+						"type": "text"
+					},
+					{
+						"key": "type",
+						"value": "\"type 1\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/factorydevices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"factorydevices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"Device V8\"",
+						"type": "text"
+					},
+					{
+						"key": "year",
+						"value": "1998",
+						"type": "text"
+					},
+					{
+						"key": "type",
+						"value": "\"type 1\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/factorydevices/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"factorydevices",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
